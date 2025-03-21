@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+
+import javax.crypto.EncryptedPrivateKeyInfo;
 public class Lawn {
     private Entity[][] lawn;
     private ArrayList<Entity> bugs = new ArrayList<Entity>();
@@ -16,5 +18,21 @@ public class Lawn {
 
     public void addEntity(Entity x){
         lawn[x.getY()][x.getX()] = x;
+    }
+    public void printLawn(){
+        for(int r = 0; r < lawn.length; r++){
+            for(int c = 0; c < lawn[r].length; c++){
+                System.out.print("["+lawn[r][c].getC()+"]");
+            }
+            System.out.println();
+        }
+    }
+
+    public void setLawn(){
+        for(int r = 0; r < lawn.length; r++){
+            for(int c = 0; c < lawn[r].length; c++){
+                lawn[r][c] = new Entity(c,r," ");
+            }
+        }
     }
 }

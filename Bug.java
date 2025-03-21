@@ -1,7 +1,7 @@
 public class Bug extends Entity{
     private int type;
-    public Bug(int x, int y, int t){
-    super(x,y);
+    public Bug(int x, int y, String c, int t){
+    super(x,y,c);
     type = t;
     }
 }

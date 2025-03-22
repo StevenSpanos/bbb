@@ -4,4 +4,6 @@ public class Bug extends Entity{
     super(x,y,c);
     type = t;
     }
+
+    public int getType(){return type;}
 }

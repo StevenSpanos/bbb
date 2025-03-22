@@ -1,7 +1,9 @@
 public class Plant extends Entity{
-    private int type;
-    public Plant(int x, int y, String c, int t){
+    private int id;
+    public Plant(int x, int y, String c, int id){
     super(x,y,c);
-    type = t;
+    this.id = id;
     }
+    
+    public int getId(){return id;}
 }

@@ -2,18 +2,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Main{
     static ArrayList<String> inputChoices = new ArrayList<String>();
+    static ArrayList<Packet> unlockedPlants = new ArrayList<Packet>();
     static Lawn lawn = new Lawn(10,5);
     public static void main(String args[]){
         inputChoices.add("plant");
         inputChoices.add("skip");
         inputChoices.add("exit");
+        unlockedPlants.add(new Packet(1,"Bamboozler","B"));
         String choice = "";
-        while(!choice.equals("exit")){
         lawn.setLawn();
+        while(!choice.equals("exit")){
         lawn.printLawn();
         choice = collectInput();
         if(choice.equals("plant")){
-            
+            plant();
         }
         }
     }
@@ -31,5 +33,24 @@ public class Main{
         }
         return choice;
     }
-
+    public static void plant(){
+        Scanner input = new Scanner(System.in);
+        for(Packet x : unlockedPlants){System.out.println(x.getId()+". "+x.getName());}
+        int plant = input.nextInt();
+        boolean valid = false;
+        while(!valid){
+            for(int i = 0; i < unlockedPlants.size(); i++){if(unlockedPlants.get(i).getId() == plant){ valid = true; break;}}
+            if(valid){break;}
+            System.out.println("Invalid Input");
+            plant = input.nextInt();
+        }
+        Packet choice = unlockedPlants.get(plant - 1);
+        System.out.println("Input x value: ");
+        int x = input.nextInt();
+        System.out.println("Input y value: ");
+        int y = input.nextInt();
+        System.out.println(choice.getCharacter());
+        System.out.println(choice.getId());
+        lawn.addEntity(new Plant(x, y, choice.getCharacter(), choice.getId()));
+    }
 }

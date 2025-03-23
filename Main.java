@@ -5,18 +5,23 @@ public class Main{
     static ArrayList<Packet> unlockedPlants = new ArrayList<Packet>();
     static Lawn lawn = new Lawn(10,5);
     public static void main(String args[]){
-        inputChoices.add("plant");
+
+        inputChoices.add("plant"); //adding input choices
         inputChoices.add("skip");
         inputChoices.add("exit");
-        unlockedPlants.add(new Packet(1,"Bamboozler","B"));
-        String choice = "";
-        lawn.setLawn();
+
+        unlockedPlants.add(new Packet(1,"Bamboozler","B")); //adding first plant
+        String choice = ""; //initializing choice
+        lawn.setLawn(); //sets the lawn object to default Entities
+        lawn.spawnBug(); //spawns a bug
+
         while(!choice.equals("exit")){
         lawn.printLawn();
         choice = collectInput();
         if(choice.equals("plant")){
             plant();
         }
+        step();
         }
     }
     public static String collectInput(){
@@ -52,5 +57,9 @@ public class Main{
         System.out.println(choice.getCharacter());
         System.out.println(choice.getId());
         lawn.addEntity(new Plant(x, y, choice.getCharacter(), choice.getId()));
+    }
+
+    public static void step(){
+        lawn.moveBugs();
     }
 }

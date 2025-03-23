@@ -4,6 +4,9 @@ public class Bug extends Entity{
     super(x,y,c);
     type = t;
     }
+    public void move(){
+        setX(getX()-1);
+    }
 
     public int getType(){return type;}
 }

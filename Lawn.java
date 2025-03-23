@@ -40,4 +40,24 @@ public class Lawn {
             }
         }
     }
+
+    public void spawnBug(){
+        int random = (int) (Math.random()*5);
+        addEntity(new Bug(lawn[0].length-1,random, "X",1));
+    }
+
+    public void moveBugs(){
+        Bug temp = new Bug(69,69,"amogus",420);
+        Class c1 = temp.getClass();
+        for(Entity[] r : lawn){
+            for(Entity c : r){
+                Class c2 = c.getClass();
+                if(c1 == c2){
+                    ((Bug) c).move();
+                    lawn[c.getY()][c.getX()] = c;
+                    lawn[c.getY()][c.getX()+1] = new Entity(c.getY(),c.getX()+1," ");
+                }
+            }
+        }
+    }
 }

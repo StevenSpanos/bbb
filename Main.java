@@ -3,7 +3,11 @@ import java.util.Scanner;
 public class Main{
     static ArrayList<String> inputChoices = new ArrayList<String>();
     static ArrayList<Packet> unlockedPlants = new ArrayList<Packet>();
+    static ArrayList<Plant> plants = new ArrayList<Plant>();
+    static ArrayList<Bug> bugs = new ArrayList<Bug>();
+    
     static Lawn lawn = new Lawn(10,5);
+    static int rounds = 0;
     public static void main(String args[]){
 
         inputChoices.add("plant"); //adding input choices
@@ -13,7 +17,7 @@ public class Main{
         unlockedPlants.add(new Packet(1,"Bamboozler","B")); //adding first plant
         String choice = ""; //initializing choice
         lawn.setLawn(); //sets the lawn object to default Entities
-        lawn.spawnBug(); //spawns a bug
+        //lawn.spawnBug(); //spawns a bug
 
         while(!choice.equals("exit")){
         lawn.printLawn();
@@ -60,6 +64,8 @@ public class Main{
     }
 
     public static void step(){
-        lawn.moveBugs();
+        if(rounds % 2 == 0)lawn.moveBugs();
+        if(rounds%10 == 0)lawn.spawnBug();
+        rounds++;
     }
 }

@@ -5,11 +5,10 @@ public class Main{
     static ArrayList<Packet> unlockedPlants = new ArrayList<Packet>();
     static ArrayList<Plant> plants = new ArrayList<Plant>();
     static ArrayList<Bug> bugs = new ArrayList<Bug>();
-    
+
     static Lawn lawn = new Lawn(10,5);
     static int rounds = 0;
     public static void main(String args[]){
-
         inputChoices.add("plant"); //adding input choices
         inputChoices.add("skip");
         inputChoices.add("exit");

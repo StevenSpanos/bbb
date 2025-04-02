@@ -14,9 +14,17 @@ public class Lawn {
     public int getY(){return lawn.length;}
     public ArrayList<Entity> getPlants(){return plants;}
     public ArrayList<Entity> getBugs(){return bugs;}
+    public Entity getPlant(int x){return plants.get(x);}
+    public Entity getBug(int x){ return bugs.get(x);}
 
     public void addEntity(Entity x){
         lawn[x.getY()][x.getX()] = x;
+        if(x instanceof Bug){
+            bugs.add(x);
+        }
+        if(x instanceof Plant){
+            plants.add(x);
+        }
     }
     public void printLawn(){
         System.out.print(" "); for(int x = 0; x < lawn[0].length; x++){System.out.print(" "+(x)+" ");}

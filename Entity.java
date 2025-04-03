@@ -1,4 +1,4 @@
-public class Entity {
+public class Entity extends Main{
     private int x;
     private int y;
     private String c;

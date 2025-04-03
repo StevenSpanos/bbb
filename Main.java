@@ -4,7 +4,6 @@ public class Main{
     static ArrayList<String> inputChoices = new ArrayList<String>();
     static ArrayList<Packet> unlockedPlants = new ArrayList<Packet>();
 
-
     static Lawn lawn = new Lawn(10,5);
     static int rounds = 0;
     public static void main(String args[]){

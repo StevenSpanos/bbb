@@ -14,8 +14,8 @@ public class Lawn {
     public int getY(){return lawn.length;}
     public ArrayList<Entity> getPlants(){return plants;}
     public ArrayList<Entity> getBugs(){return bugs;}
-    public Entity getPlant(int x){return plants.get(x);}
-    public Entity getBug(int x){ return bugs.get(x);}
+    public Entity getPlant(int x){if(!(x < plants.size())){return null;}return plants.get(x);}
+    public Entity getBug(int x){if(!(x < bugs.size())){return null;}return bugs.get(x);}
 
     public void addEntity(Entity x){
         lawn[x.getY()][x.getX()] = x;
